@@ -5,13 +5,6 @@ import {
     Text,
     Image,
     TextInput,
-    Button,
-    FlatList,
-    TouchableOpacity,
-    TouchableNativeFeedback,
-    TouchableWithoutFeedback,
-    TouchableHighlight,
-    Touchable,
     StyleSheet
 } from 'react-native'
 import StyleUseMain from "../two_layout_property/style_use/StyleUseMain";
@@ -55,14 +48,15 @@ export default class BaseComponents extends Component {
                    source={require('../../imags/beauty.jpg')}/>
             <Text style={styles.subsubTitleStyle}>资源文件下-Android必须是 drawable目录下</Text>
 
-            <Text style={styles.subsubTitleStyle}>属性复用</Text>
-            <StyleUseMain/>
+
             <Image style={styles.imageStyles}
                    source={{uri: 'ic_launcher'}}/>
+            <Text style={styles.subsubTitleStyle}>属性复用</Text>
+            <StyleUseMain/>
 
-            <TextInput style={{alignContent:'center',width: 100, height: 50}}
-                       defaultValue="我是默认值"/>
-
+            <Text style={styles.subsubTitleStyle}>TextInput</Text>
+            <TextInput style={{alignContent: 'center', width: 100, height: 50}}
+                       placeholder="我是TextInput的默认值"/>
 
         </ScrollView>
     }
