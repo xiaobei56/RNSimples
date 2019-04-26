@@ -3,11 +3,19 @@ import {
     ScrollView,
     View,
     Text,
+    Button,
     Image,
     TextInput,
-    StyleSheet
+    Alert,
+    StyleSheet,
+    TouchableOpacity,
+    TouchableHighlight,
+    TouchableWithoutFeedback,
+    TouchableNativeFeedback,
+    Touchable,
 } from 'react-native'
 import StyleUseMain from "../two_layout_property/style_use/StyleUseMain";
+import type {Buttons} from "react-native/Libraries/Alert/Alert";
 
 const IMAGE_DATA = [
     {
@@ -17,6 +25,10 @@ const IMAGE_DATA = [
     }
 ];
 export default class BaseComponents extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {count: 0}
+    }
 
     render() {
         return <ScrollView style={{flex: 1, backgroundColor: 'LightCyan'}}>
@@ -54,32 +66,69 @@ export default class BaseComponents extends Component {
             <Text style={styles.subsubTitleStyle}>属性复用</Text>
             <StyleUseMain/>
 
-            <Text style={styles.subsubTitleStyle}>TextInput</Text>
+            <Text style={styles.subTitleStyle}>TextInput</Text>
             <TextInput style={{alignContent: 'center', width: 100, height: 50}}
                        placeholder="我是TextInput的默认值"/>
 
+            <Text style={styles.subTitleStyle}>Button</Text>
+
+            <Button
+                onPress={() => {
+                    Alert.alert("im the button, who are you")
+                }}
+                title="点我"
+                color='red'
+                disabled={false}
+            />
+            <TouchableOpacity
+                onPress={() => {
+                    this.onPress
+                    Alert.alert('count:' + this.state.count)
+                }}
+            >
+                <Text style={{fontSize: 20, color: 'red',alignContent:'center',justifyContent:'center'}}>Touchable Opacity</Text>
+                <Image style={{width: 100, height: 40}} source={{uri: '../images/img.jpeg'}}/>
+            </TouchableOpacity>
+
+            <Text style={styles.countText}>
+                {this.state.count !== 0 ? this.state.count : null}
+            </Text>
         </ScrollView>
     }
-
-}
-const styles = StyleSheet.create({
-    container: {},
-    subTitleStyle: {
-        backgroundColor: '#ffaa11',
-        justifyContent: 'center',
-        textAlignVertical: 'center',
-        textAlign: 'center',
-        height: 30,
-    }, subsubTitleStyle: {
-        backgroundColor: '#aaa',
-        justifyContent: 'center',
-        textAlignVertical: 'center',
-        textAlign: 'center',
-        height: 30,
-
-    },
-    imageStyles: {
-        width: 80,
-        height: 80,
+    onPress(){
+        this.setState({
+            // count:this.
+        })
     }
-})
+}
+
+const styles = StyleSheet.create({
+        subTitleStyle: {
+            backgroundColor: '#ffaa11',
+            justifyContent: 'center',
+            textAlignVertical: 'center',
+            textAlign: 'center',
+            height: 30,
+        }, subsubTitleStyle: {
+            backgroundColor: '#aaa',
+            justifyContent: 'center',
+            textAlignVertical: 'center',
+            textAlign: 'center',
+            height: 30,
+
+        }, imageStyles: {
+            width: 80,
+            height: 80,
+        }, button: {
+            alignItems: 'center',
+            backgroundColor: '#DDDDDD',
+            padding: 10
+        }, countContainer: {
+            alignItems: 'center',
+            padding: 10
+        }, countText: {
+            color: '#FF00FF'
+        }
+
+    }
+)
