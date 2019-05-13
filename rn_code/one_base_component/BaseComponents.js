@@ -32,6 +32,7 @@ export default class BaseComponents extends Component {
 
     render() {
         return <ScrollView style={{flex: 1, backgroundColor: 'LightCyan'}}>
+            {/* TextView */}
             <Text style={styles.subTitleStyle}>TextView</Text>
             <Text style={{
                 //字体
@@ -48,6 +49,8 @@ export default class BaseComponents extends Component {
                 //外边距
                 margin: 5,//外边距
             }}>我是测试TextView的</Text>
+
+            {/* Image-获取图片 */}
             <Text style={styles.subTitleStyle}>Image-获取图片</Text>
             <Text style={styles.subsubTitleStyle}>网络图片</Text>
             <Image style={styles.imageStyles}
@@ -60,16 +63,19 @@ export default class BaseComponents extends Component {
                    source={require('../../imags/beauty.jpg')}/>
             <Text style={styles.subsubTitleStyle}>资源文件下-Android必须是 drawable目录下</Text>
 
-
+            {/*  属性复用  */}
             <Image style={styles.imageStyles}
                    source={{uri: 'ic_launcher'}}/>
             <Text style={styles.subsubTitleStyle}>属性复用</Text>
             <StyleUseMain/>
 
+
+            {/*  TextInput  */}
             <Text style={styles.subTitleStyle}>TextInput</Text>
             <TextInput style={{alignContent: 'center', width: 100, height: 50}}
                        placeholder="我是TextInput的默认值"/>
 
+            {/*           Button  */}
             <Text style={styles.subTitleStyle}>Button</Text>
 
             <Button
@@ -80,6 +86,7 @@ export default class BaseComponents extends Component {
                 color='red'
                 disabled={false}
             />
+
             <TouchableOpacity
                 onPress={() => {
                     this.onPress
