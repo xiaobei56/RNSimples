@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {View, Platform, StyleSheet, ScrollView, Button} from 'react-native';
-import {Actions, ActionsStatic} from "react-native-router-flux";
+import {Actions} from "react-native-router-flux";
 
 Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -50,16 +50,21 @@ export default class App extends Component<Props> {
 
     render() {
 
-            return (
+        return (
             <ScrollView style={{flex: 1, backgroundColor: 'aquamarine '}}>
+
                 <Button title="基础组件" onPress={() => {
                     Actions.basecomponents()
                 }} color='darkgray'/>
+
                 <View style={{flex: 1, height: 5, backgroundColor: "yellow"}}/>
+
                 <Button title="学习State和Props" onPress={() => {
                     Actions.stateandprops()
                 }} color='darkgray'/>
+
                 <View style={{flex: 1, height: 5, backgroundColor: "yellow"}}/>
+
                 <Button title="react-native-router-flux 实现底部导航" onPress={() => {
                     Actions.tabbar()
                 }} color='darkgray'/>
