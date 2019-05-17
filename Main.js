@@ -20,6 +20,11 @@ import Info from "./rn_code/page/info";
 import Register from "./rn_code/page/register";
 import {StyleSheet} from "react-native";
 import TabIcon from "./TabIcon";
+import XueXin from "./rn_code/xuexin/xuexin";
+import type {Message} from "react-native/Libraries/YellowBox/Data/YellowBoxCategory";
+import School from "./rn_code/xuexin/school";
+import XXMessage from "./rn_code/xuexin/xxmessage";
+import Splash from "./rn_code/xuexin/splash";
 
 export default class Main extends Component {
     constructor(props) {
@@ -91,7 +96,7 @@ export default class Main extends Component {
                         style={styles.tabbarContainer}
                         initial={true}
                     >
-                        <Scene key="index_1" component={Me}  title="我的"/>
+                        <Scene key="index_1" component={Me} title="我的"/>
                     </Stack>
                 </Tabs>
 
@@ -103,6 +108,40 @@ export default class Main extends Component {
                     <Scene key="register" duration={0} hideNavBar={true} component={Register} title="注册"/>
                     {/*<Scene key="u" duration={0} component={UserInfo} title="用户详情"/>*/}
                 </Stack>
+                <Stack key="xuexin_component" hideNavBar={true}>
+                    <Scene key="splash" name="Splash页" hideNavBar={true} component={Splash}/>
+                    <Tabs
+                        key="xuexin_tab"
+                    >
+                        <Stack key="xuexin_tab_xuexin" tabBarLabel="学信" tabBarPosition='top' swipeEnabled={true}
+                               hideNavBar={true} tabs={false} style={styles.tabbarContainer}>
+                            <Scene key="xuexin" component={XueXin} hideNavBar={true}/>
+                        </Stack>
+                        <Stack key="message" tabBarLabel="消息" tabBarPosition='top'
+                               tabBarStyle={{backgroundColor: 'white'}}
+                               labelStyle={{color: '#37BC63', fontSize: 18}} tabs={true}
+                               style={[styles.tabbarContainer, {borderBottomColor: 'red', borderBottomWidth: 1}]}
+                               tabStyle={{
+
+                                   backgroundColor: 'deepskyblue',
+                                   shadowColor: 'deeppink',
+                                   shadowOffsetY: 5,
+                                   shadowOffsetX: 5
+                               }} labelStyle={{color: 'red'}}
+                               icon={TabIcon}>
+                            <Scene key="message" component={XXMessage} hideNavBar={true}/>
+                        </Stack>
+                        <Scene key="school" tabBarLabel="学校" component={School} hideNavBar={true} tabs={true}
+                               style={styles.tabbarContainer}
+                               labelStyle={{color: "#37BC63"}}
+                        />
+                        <Scene key="me" tabBarLabel="我的" component={Me} hideNavBar={true} tabs={true}
+                               style={styles.tabbarContainer}/>
+
+                    </Tabs>
+
+                </Stack>
+
             </Stack>
 
 

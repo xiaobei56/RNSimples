@@ -68,6 +68,12 @@ export default class App extends Component<Props> {
                 <Button title="react-native-router-flux 实现底部导航" onPress={() => {
                     Actions.tabbar()
                 }} color='darkgray'/>
+
+                <View style={{flex: 1, height: 5, backgroundColor: "yellow"}}/>
+                  <Button title="跳转到 真 学信" onPress={() => {
+                    Actions.xuexin_component()
+                }} color='darkgray'/>
+
             </ScrollView>
         );
     }
